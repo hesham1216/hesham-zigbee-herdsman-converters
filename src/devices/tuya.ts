@@ -1060,6 +1060,28 @@ export const definitions: DefinitionWithExtend[] = [
             }
         },
     },
+    
+        fingerprint: [{modelID: 'TS0601', manufacturerName: '_TZE284_zpvusbtv'}],
+        model: 'ZN2S-RS02E',
+        vendor: 'Tuya',
+        description: 'Two gang switch',
+        fromZigbee: [tuya.fz.datapoints],
+        toZigbee: [tuya.tz.datapoints],
+        configure: tuya.configureMagicPacket,
+        endpoint: () => ({l1: 1, l2: 2}),
+        exposes: [
+            e.switch().withEndpoint('l1').withProperty('state_l1'),
+            e.switch().withEndpoint('l2').withProperty('state_l2'),
+        ],
+        meta: {
+            multiEndpoint: true,
+            tuyaDatapoints: [
+                [1, 'state_l1', tuya.valueConverter.onOff],
+                [2, 'state_l2', tuya.valueConverter.onOff],
+            ],
+        },
+    },
+
     {
         fingerprint: tuya.fingerprint("TS0601", ["_TZE284_vuwtqx0t", "_TZE200_vuwtqx0t"]),
         model: "TS0601_water_valve",

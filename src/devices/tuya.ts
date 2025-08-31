@@ -1060,7 +1060,7 @@ export const definitions: DefinitionWithExtend[] = [
             }
         },
     },
-    
+    {
         fingerprint: [{modelID: 'TS0601', manufacturerName: '_TZE284_zpvusbtv'}],
         model: 'ZN2S-RS02E',
         vendor: 'Tuya',
